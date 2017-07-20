@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="GS.module.services.wsSecurity" CodeBehind="wsSecurity.svc.cs" %>

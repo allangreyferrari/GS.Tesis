@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+Este archivo es utilizado por el proceso de paquete/publicación de nuestro proyecto Web. Puede personalizar el comportamiento de este proceso
+editando este archivo MSBuild. Para conocer más acerca de esto, visite http://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>C:\Data\Publish\merlinservices_release</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="ApplicationInsights.config">
+      <publishTime>04/03/2017 00:22:31</publishTime>
+    </File>
+    <File Include="bin/ApplicationInsights.config">
+      <publishTime>04/03/2017 00:22:31</publishTime>
+    </File>
+    <File Include="bin/GS.Helpdesk.data.access.dll">
+      <publishTime>04/11/2017 07:35:13</publishTime>
+    </File>
+    <File Include="bin/GS.Helpdesk.entities.dll">
+      <publishTime>04/11/2017 07:35:13</publishTime>
+    </File>
+    <File Include="bin/GS.Helpdesk.logic.dll">
+      <publishTime>04/11/2017 07:35:13</publishTime>
+    </File>
+    <File Include="bin/GS.Helpdesk.services.dll">
+      <publishTime>04/12/2017 00:08:30</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AI.Agent.Intercept.dll">
+      <publishTime>11/30/2016 16:07:42</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AI.DependencyCollector.dll">
+      <publishTime>12/07/2016 11:45:42</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AI.PerfCounterCollector.dll">
+      <publishTime>12/07/2016 11:50:34</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AI.ServerTelemetryChannel.dll">
+      <publishTime>12/06/2016 15:15:48</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AI.Web.dll">
+      <publishTime>12/07/2016 11:49:10</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AI.WindowsServer.dll">
+      <publishTime>12/07/2016 11:50:34</publishTime>
+    </File>
+    <File Include="bin/Microsoft.ApplicationInsights.dll">
+      <publishTime>12/06/2016 15:09:52</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Diagnostics.Tracing.EventSource.dll">
+      <publishTime>12/01/2015 14:31:46</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Practices.EnterpriseLibrary.Common.dll">
+      <publishTime>04/02/2017 22:37:22</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Practices.EnterpriseLibrary.Data.dll">
+      <publishTime>04/02/2017 22:37:22</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Practices.ServiceLocation.dll">
+      <publishTime>04/02/2017 22:37:22</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Practices.Unity.dll">
+      <publishTime>04/02/2017 22:37:22</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Practices.Unity.Interception.dll">
+      <publishTime>04/02/2017 22:37:22</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Threading.Tasks.dll">
+      <publishTime>04/07/2014 12:26:14</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Threading.Tasks.Extensions.Desktop.dll">
+      <publishTime>04/07/2014 12:26:14</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Threading.Tasks.Extensions.dll">
+      <publishTime>04/07/2014 12:26:14</publishTime>
+    </File>
+    <File Include="bin/System.IO.dll">
+      <publishTime>02/18/2015 17:07:08</publishTime>
+    </File>
+    <File Include="bin/System.Runtime.dll">
+      <publishTime>02/18/2015 17:07:08</publishTime>
+    </File>
+    <File Include="bin/System.Threading.Tasks.dll">
+      <publishTime>02/18/2015 17:07:08</publishTime>
+    </File>
+    <File Include="contract/wsConfiguracion.svc">
+      <publishTime>04/05/2017 11:22:00</publishTime>
+    </File>
+    <File Include="contract/wsMaster.svc">
+      <publishTime>04/07/2017 13:42:25</publishTime>
+    </File>
+    <File Include="contract/wsSecurity.svc">
+      <publishTime>04/03/2017 00:29:10</publishTime>
+    </File>
+    <File Include="packages.config">
+      <publishTime>04/03/2017 00:22:31</publishTime>
+    </File>
+    <File Include="PrecompiledApp.config">
+      <publishTime>04/12/2017 00:08:30</publishTime>
+    </File>
+    <File Include="Test.aspx">
+      <publishTime>04/11/2017 17:02:18</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>04/11/2017 22:50:01</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

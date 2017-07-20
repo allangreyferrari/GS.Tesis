@@ -1,0 +1,9 @@
+C:\Data\Desarrollo\TFS\GS.Content\GS.Helpdesk.library\bin\Debug\GS.Helpdesk.library.dll
+C:\Data\Desarrollo\TFS\GS.Content\GS.Helpdesk.library\bin\Debug\GS.Helpdesk.library.pdb
+C:\Data\Desarrollo\TFS\GS.Content\GS.Helpdesk.library\obj\Debug\GS.Helpdesk.library.dll
+C:\Data\Desarrollo\TFS\GS.Content\GS.Helpdesk.library\obj\Debug\GS.Helpdesk.library.pdb
+C:\Data\Desarrollo\TFS\GS.Content\GS.Helpdesk.library\obj\Debug\GS.Helpdesk.library.csprojResolveAssemblyReference.cache
+C:\Data\Dev\Innovacion\GS.Content\GS.Helpdesk.library\bin\Debug\GS.Helpdesk.library.dll
+C:\Data\Dev\Innovacion\GS.Content\GS.Helpdesk.library\bin\Debug\GS.Helpdesk.library.pdb
+C:\Data\Dev\Innovacion\GS.Content\GS.Helpdesk.library\obj\Debug\GS.Helpdesk.library.dll
+C:\Data\Dev\Innovacion\GS.Content\GS.Helpdesk.library\obj\Debug\GS.Helpdesk.library.pdb
