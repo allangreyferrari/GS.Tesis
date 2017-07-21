@@ -88,6 +88,10 @@
         Transaction EjecutarTransaction(string key, object[] parametros, object[] cryp = null);
         #endregion
 
-
+        [OperationContract]
+        [WebInvoke(Method = "GET", UriTemplate = "GetOptions",
+            RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json,
+            BodyStyle = WebMessageBodyStyle.WrappedRequest)]
+        string GetOptions();
     }
 }

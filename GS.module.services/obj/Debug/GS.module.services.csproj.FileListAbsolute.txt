@@ -108,11 +108,6 @@ C:\Data\Dev\PI\GS.module.services\bin\Microsoft.Threading.Tasks.Extensions.dll
 C:\Data\Dev\PI\GS.module.services\bin\System.IO.dll
 C:\Data\Dev\PI\GS.module.services\bin\System.Runtime.dll
 C:\Data\Dev\PI\GS.module.services\bin\System.Threading.Tasks.dll
-C:\Data\Dev\PI\GS.module.services\bin\Microsoft.Practices.EnterpriseLibrary.Data.dll
-C:\Data\Dev\PI\GS.module.services\bin\Microsoft.Practices.EnterpriseLibrary.Common.dll
-C:\Data\Dev\PI\GS.module.services\bin\Microsoft.Practices.ServiceLocation.dll
-C:\Data\Dev\PI\GS.module.services\bin\Microsoft.Practices.Unity.dll
-C:\Data\Dev\PI\GS.module.services\bin\Microsoft.Practices.Unity.Interception.dll
 C:\Data\Dev\PI\GS.module.services\bin\Microsoft.Diagnostics.Tracing.EventSource.xml
 C:\Data\Dev\PI\GS.module.services\bin\Microsoft.Threading.Tasks.xml
 C:\Data\Dev\PI\GS.module.services\bin\Microsoft.Threading.Tasks.Extensions.xml
@@ -121,6 +116,5 @@ C:\Data\Dev\PI\GS.module.services\bin\System.IO.xml
 C:\Data\Dev\PI\GS.module.services\bin\System.Runtime.xml
 C:\Data\Dev\PI\GS.module.services\bin\System.Threading.Tasks.xml
 C:\Data\Dev\PI\GS.module.services\obj\Debug\GS.module.services.csproj.App.config
-C:\Data\Dev\PI\GS.module.services\obj\Debug\GS.module.services.csprojResolveAssemblyReference.cache
 C:\Data\Dev\PI\GS.module.services\obj\Debug\GS.module.services.dll
 C:\Data\Dev\PI\GS.module.services\obj\Debug\GS.module.services.pdb

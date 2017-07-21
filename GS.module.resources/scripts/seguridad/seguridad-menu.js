@@ -4,7 +4,7 @@ $(document).ready(function () {
     $.ajax({
         type: "GET",
         contentType: 'application/json; charset=utf-8',
-        url: wsnode + "wsSecurity.svc/GetOptions",
+        url: wsnode + "wsCommon.svc/GetOptions",
         data: null,
         cache: false,
         success: function (data) {

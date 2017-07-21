@@ -7,6 +7,7 @@
     using System.Linq;
     using System.ServiceModel;
     using System.ServiceModel.Activation;
+    using System.Text;
     using System.Web;
 
     // NOTA: puede usar el comando "Rename" del menú "Refactorizar" para cambiar el nombre de clase "wsCommon" en el código, en svc y en el archivo de configuración a la vez.
@@ -99,5 +100,97 @@
         }
         #endregion
         ~wsCommon() { }
+
+        #region Opciones - Temporal
+        string GetOptionsChildren(List<Option> options, int idPadre)
+        {
+            bool finish = false;
+            StringBuilder builder = new StringBuilder();
+            foreach (Option option in options.Where(be => be.CodigoPadre == idPadre))
+            {
+                switch (option.TipoApertura)
+                {
+                    case 4:
+                        builder.Append(string.Format("<li class=\"dropdown-header\"><i class=\"{0}\"></i>&nbsp;&nbsp;{1}</li>", option.Abreviatura, option.Nombre.ToUpper()));
+                        var html = GetOptionsChildren(options, option.Codigo);
+                        if (html != string.Empty)
+                            builder.Append(html);
+                        builder.Append(string.Format("<li class=\"divider\"></li>"));
+                        break;
+                    case 1:
+                        builder.Append(string.Format("<li><a href= \"#\" onclick=\"OpenPage('{1}');return false;\" ><i class=\"{0}\"></i>&nbsp;&nbsp;{2}</a></li>", option.Abreviatura, option.Ruta, option.Nombre));
+                        //builder.Append(string.Format("<li><a href= \"#\" onclick=\"OpenPage('{0}');return false;\"> {1}</a></li>", option.RT_OPCION, option.NO_OPCION));
+                        break;
+                    default:
+                        finish = true;
+                        break;
+                }
+            }
+            if (finish)
+                builder.Append(@"</ul></li>");
+            return builder.ToString();
+        }
+
+        public string GetOptions()
+        {
+            List<Option> options = new List<Option>();
+            options.Add(new Option() { Codigo = 1, Nombre = "Módulo de Inspecciones Física", Ruta = "", CodigoPadre = 0, Nivel = "1", TipoApertura = 3, TipoRuta = "1", Abreviatura = "fa fa-fw fa-cubes" });
+            options.Add(new Option() { Codigo = 2, Nombre = "Planificación", Ruta = "", CodigoPadre = 1, Nivel = "2", TipoApertura = 4, TipoRuta = "1", Abreviatura = "fa fa-fw fa-cog" });
+            options.Add(new Option() { Codigo = 3, Nombre = "Cargar Distribución de dúas para la atención", Ruta = "Content/ssii/viewdistribucionduas.html", CodigoPadre = 2, Nivel = "1", TipoApertura = 1, TipoRuta = "1", Abreviatura = "fa fa-fw fa-cloud-upload" });
+            options.Add(new Option() { Codigo = 4, Nombre = "Ejecución", Ruta = "", CodigoPadre = 1, Nivel = "2", TipoApertura = 4, TipoRuta = "1", Abreviatura = "fa fa-fw fa-cog" });
+            options.Add(new Option() { Codigo = 5, Nombre = "Actualizar Informacion de Ejecucion de Inspecciones Fisicas", Ruta = "Content/ssii/viewejecucioninspecciones.html", CodigoPadre = 4, Nivel = "1", TipoApertura = 1, TipoRuta = "1", Abreviatura = "fa fa-fw fa-cubes" });
+
+            if (options.Count > 0)
+            {
+                StringBuilder builder = new StringBuilder();
+                foreach (Option option in options.Where(be => be.CodigoPadre == 0))
+                {
+                    switch (option.TipoApertura)
+                    {
+                        case 3:
+                            builder.Append("<li class=\"dropdown\">");
+                            builder.Append(string.Format("<a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\"><i class=\"{0}\"></i>&nbsp;&nbsp;{1} <span class=\"caret\"></span></a>", option.Abreviatura, option.Nombre));
+                            builder.Append("<ul class=\"dropdown-menu multi-level\" role=\"menu\" aria-labelledby=\"dropdownMenu\">");
+                            var html = GetOptionsChildren(options, option.Codigo);
+                            if (html != string.Empty)
+                            {
+                                builder.Append(html);
+                                builder.Append("</ul></li>");
+                            }
+                            else
+                            {
+                            }
+                            break;
+                        case 1:
+                            builder.Append(string.Format("<li><i class=\"{0}\"></i>&nbsp;&nbsp;<a href=\"{1}\">{2}</a></li>", option.Abreviatura, option.Ruta, option.Nombre));
+                            break;
+                        default:
+                            break;
+
+                    }
+                }
+                return builder.ToString();
+            }
+            else
+                return Helper.InvokeErrorHTML("No se pudo cargar las opciones del sistema");
+        }
+
+
     }
+
+    public class Option
+    {
+        public int Codigo { get; set; }
+        public string Nombre { get; set; }
+        public string Ruta { get; set; }
+        public int CodigoPadre { get; set; }
+        public string Nivel { get; set; }
+        public int TipoApertura { get; set; }
+        public string Imagen { get; set; }
+        public string Descripcion { get; set; }
+        public string TipoRuta { get; set; }
+        public string Abreviatura { get; set; }
+    }
+
+    #endregion
 }
