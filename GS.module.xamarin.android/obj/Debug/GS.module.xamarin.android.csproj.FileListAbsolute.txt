@@ -85,7 +85,6 @@ C:\Data\Dev\PI\GS.module.xamarin.android\bin\Debug\GS.module.xamarin.android.dll
 C:\Data\Dev\PI\GS.module.xamarin.android\bin\Debug\GS.module.xamarin.android.pdb
 C:\Data\Dev\PI\GS.module.xamarin.android\bin\Debug\GS.module.xamarin.android.apk
 C:\Data\Dev\PI\GS.module.xamarin.android\bin\Debug\GS.module.xamarin.android-Signed.apk
-C:\Data\Dev\PI\GS.module.xamarin.android\obj\Debug\GS.module.xamarin.android.csprojResolveAssemblyReference.cache
 C:\Data\Dev\PI\GS.module.xamarin.android\obj\Debug\GS.module.xamarin.android.dll
 C:\Data\Dev\PI\GS.module.xamarin.android\obj\Debug\GS.module.xamarin.android.pdb
 C:\Data\Dev\PI\GS.module.xamarin.android\obj\Debug\android\bin\GS.module.xamarin.android.apk
