@@ -6,7 +6,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
-    <_PublishTargetUrl>C:\Data\Publish\PI2\moduleservices</_PublishTargetUrl>
+    <_PublishTargetUrl>C:\Data\Publish\GS.pco\moduleservices</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="ApplicationInsights.config">
@@ -16,16 +16,16 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>05/19/2017 02:40:50</publishTime>
     </File>
     <File Include="bin/GS.module.data.access.dll">
-      <publishTime>07/17/2017 15:05:45</publishTime>
+      <publishTime>07/18/2017 09:02:09</publishTime>
     </File>
     <File Include="bin/GS.module.entities.dll">
-      <publishTime>07/17/2017 15:05:45</publishTime>
+      <publishTime>07/18/2017 09:02:09</publishTime>
     </File>
     <File Include="bin/GS.module.logic.dll">
-      <publishTime>07/17/2017 15:05:45</publishTime>
+      <publishTime>07/18/2017 09:02:09</publishTime>
     </File>
     <File Include="bin/GS.module.services.dll">
-      <publishTime>07/17/2017 15:05:46</publishTime>
+      <publishTime>07/20/2017 15:17:44</publishTime>
     </File>
     <File Include="bin/Microsoft.Diagnostics.Tracing.EventSource.dll">
       <publishTime>05/19/2017 02:40:54</publishTime>
@@ -70,13 +70,13 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>05/19/2017 02:40:52</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>07/17/2017 15:05:47</publishTime>
+      <publishTime>07/20/2017 15:17:47</publishTime>
     </File>
     <File Include="Test.aspx">
       <publishTime>05/19/2017 02:40:52</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>07/17/2017 15:05:46</publishTime>
+      <publishTime>07/20/2017 15:17:45</publishTime>
     </File>
   </ItemGroup>
 </Project>
