@@ -42,8 +42,8 @@ $(document).ready(function () {
     });
     if (pgnode != '/')
         OpenPage(pgnode);
-    else
-        OpenPage("configuracion/viewSistema.html");
+    //else
+    //    OpenPage("../../Content/seguridad/configuracion/viewSistema.html");
 });
 
 function OpenPage(namepage) {    

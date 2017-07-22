@@ -136,9 +136,9 @@
             List<Option> options = new List<Option>();
             options.Add(new Option() { Codigo = 1, Nombre = "Módulo de Inspecciones Física", Ruta = "", CodigoPadre = 0, Nivel = "1", TipoApertura = 3, TipoRuta = "1", Abreviatura = "fa fa-fw fa-cubes" });
             options.Add(new Option() { Codigo = 2, Nombre = "Planificación", Ruta = "", CodigoPadre = 1, Nivel = "2", TipoApertura = 4, TipoRuta = "1", Abreviatura = "fa fa-fw fa-cog" });
-            options.Add(new Option() { Codigo = 3, Nombre = "Cargar Distribución de dúas para la atención", Ruta = "Content/ssii/viewdistribucionduas.html", CodigoPadre = 2, Nivel = "1", TipoApertura = 1, TipoRuta = "1", Abreviatura = "fa fa-fw fa-cloud-upload" });
+            options.Add(new Option() { Codigo = 3, Nombre = "Cargar Distribución de dúas para la atención", Ruta = "../../Content/ssii/planificacion/viewdistribucionduas.html", CodigoPadre = 2, Nivel = "1", TipoApertura = 1, TipoRuta = "1", Abreviatura = "fa fa-fw fa-cloud-upload" });
             options.Add(new Option() { Codigo = 4, Nombre = "Ejecución", Ruta = "", CodigoPadre = 1, Nivel = "2", TipoApertura = 4, TipoRuta = "1", Abreviatura = "fa fa-fw fa-cog" });
-            options.Add(new Option() { Codigo = 5, Nombre = "Actualizar Informacion de Ejecucion de Inspecciones Fisicas", Ruta = "Content/ssii/viewejecucioninspecciones.html", CodigoPadre = 4, Nivel = "1", TipoApertura = 1, TipoRuta = "1", Abreviatura = "fa fa-fw fa-cubes" });
+            options.Add(new Option() { Codigo = 5, Nombre = "Actualizar Informacion de Ejecucion de Inspecciones Fisicas", Ruta = "../../Content/ssii/viewejecucioninspecciones.html", CodigoPadre = 4, Nivel = "1", TipoApertura = 1, TipoRuta = "1", Abreviatura = "fa fa-fw fa-cubes" });
 
             if (options.Count > 0)
             {

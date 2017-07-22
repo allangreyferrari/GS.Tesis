@@ -1,0 +1,47 @@
+﻿<div class="container-fluid ContentBanner">
+    <div class="col-xs-12">
+        <div class="col-xs-12" style="padding:5px; height: 29px;">
+            <i class="fa fa-home">&nbsp;</i> Realizar Carga Masiva de DUAs
+            <i title="Regresar a Cargar distribución de DUAs" class="fa fa-arrow-left  pull-right" style="cursor:pointer;" onclick="IrCargarDistribucionDuas(); return false;">&nbsp;</i>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid ContentPage">
+    <div id="contentBusquedaAvanzada" class="row">
+        <div class="col-xs-12">
+            <div class="input-group" style="width:100%">
+                <span class="input-group-addon" style="width:100px">Fecha Programación</span>
+                <input type="text" class="form-control" id="filtroFechaProgramacion" placeholder="" />
+            </div>
+        </div>
+        <div class="col-xs-12">
+            <div class="input-group" style="width:100%">
+                <span class="input-group-addon" style="width:100px">Archivo</span>
+                <div class="form-control" style="height:35px;top:0px;margin:0px 0px 0px 0px;padding: 0px 0px 0px 0px;">
+                    <iframe src="../../Content/ssii/planificacion/viewdistribucionduasCargamasivaUpload.aspx" style="border:0px;width: 500px;height:57px;margin:0px 0px 0px 0px;padding: 0px 0px 0px 0px;"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid ContentBannerBody">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12" style="padding: 7px 7px 7px 35px;height: 29px;margin: 0px 0px 0px 0px;">
+            <i class="fa fa-list">&nbsp;</i> Listado de DUAs para Programación
+            <i title="Buscar" class="fa fa-search pull-right" style="cursor:pointer;margin-right:20px" onclick="ListarDUASCargaMasiva(); return false;">&nbsp;</i>
+            <i title="Descargar Plantilla" class="fa fa-file-excel-o pull-right" style="cursor:pointer;margin-right:20px" onclick="DescargarPlantilla(); return false;">&nbsp;</i>
+            <i title="Cargar Archivo" class="fa fa-cloud-upload pull-right" style="cursor:pointer;margin-right:20px" onclick="CargarArchivo(); return false;">&nbsp;</i>
+        </div>
+    </div>
+</div>
+
+<div id="grid-view">
+    <div id="gridpadre">
+    </div>
+</div>
+
+<script>
+    appendScriptChild("/moduleresources/scripts/ssii/planificacion/controller-distribucionduas-cargamasiva.js");
+</script>
