@@ -21,3 +21,9 @@ C:\Data\Dev\PI\GS.module.library\bin\Debug\GS.module.library.pdb
 C:\Data\Dev\PI\GS.module.library\bin\Debug\GS.module.entities.dll
 C:\Data\Dev\PI\GS.module.library\obj\Debug\GS.module.library.exe
 C:\Data\Dev\PI\GS.module.library\obj\Debug\GS.module.library.pdb
+D:\RepositorioGit\PI2\GS.module.library\bin\Debug\GS.module.library.exe
+D:\RepositorioGit\PI2\GS.module.library\bin\Debug\GS.module.library.pdb
+D:\RepositorioGit\PI2\GS.module.library\bin\Debug\GS.module.entities.dll
+D:\RepositorioGit\PI2\GS.module.library\obj\Debug\GS.module.library.csprojResolveAssemblyReference.cache
+D:\RepositorioGit\PI2\GS.module.library\obj\Debug\GS.module.library.exe
+D:\RepositorioGit\PI2\GS.module.library\obj\Debug\GS.module.library.pdb
