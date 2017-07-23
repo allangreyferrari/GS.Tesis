@@ -1,0 +1,100 @@
+﻿<div class="container-fluid ContentBanner">
+    <div class="col-xs-12">
+        <div class="col-xs-12" style="padding:5px; height: 29px;">
+            <i class="fa fa-home">&nbsp;</i> Actualizar información de ejecución de inspecciones físicas
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid ContentPage">
+    <div id="contentBusquedaAvanzada" class="row">
+        <div class="col-xs-12 col-sm-6 col-md-3">
+            <div class="input-group" style="width:100%">
+                <span class="input-group-addon" style="width:100px">Fecha</span>
+                <input type="date" class="form-control" id="filtroFecha" placeholder="Ingrese" />
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-3">
+            <div class="input-group" style="width:100%">
+                <span class="input-group-addon" style="width:100px">Volante</span>
+                <input type="text" class="form-control" id="filtroVolante" placeholder="Ingrese" />
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-3">
+            <div class="input-group" style="width:100%">
+                <span class="input-group-addon" style="width:100px">DUA</span>
+                <input type="text" class="form-control" id="filtroDua" placeholder="Ingrese" />
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-3">
+            <div class="input-group" style="width:100%">
+                <span class="input-group-addon" style="width:100px">Cliente</span>
+                <input type="text" class="form-control" id="filtroCliente" placeholder="Ingrese" />
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="container-fluid ContentBannerBody">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12" style="padding: 7px 7px 7px 35px;height: 29px;margin: 0px 0px 0px 0px;">
+            <i class="fa fa-list">&nbsp;</i> Listado de DUAs
+            <i title="Buscar" class="fa fa-search pull-right" style="cursor:pointer;margin-right:20px" onclick="ListarInspecciones(); return false;">&nbsp;</i>
+            <i title="Relacionar" class="fa fa-handshake-o pull-right" style="cursor:pointer;margin-right:20px" onclick="Relacionar(); return false;">&nbsp;</i>
+            <i title="Ver distribución" class="fa fa-cubes pull-right" style="cursor:pointer;margin-right:20px" onclick="VerDistribucion(); return false;">&nbsp;</i>
+        </div>
+    </div>
+</div>
+
+<div id="grid-view">
+    <div id="gridpadre">
+    </div>
+</div>
+
+<center>
+    <div class="modal fade" id="PopupRelacionar" tabindex="-1" role="dialog" aria-hidden="true" style="z-index:99991">
+        <div class="modal-dialog" style="max-width:450px">
+            <div class="modal-content">
+                <div class="modal-header PopupBanner">
+                    <div id="PopupRelacionarHeader"></div>
+                    <input type="hidden" id="PopupRelacionarId" />
+                </div>
+                <div class="modal-body" id="PopupRelacionarBody">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-6 col-md-3">
+                            <div class="input-group" style="width:100%">
+                                <span class="input-group-addon" style="width:100px">Fecha de atención</span>
+                                <input type="date" class="form-control" id="filtroFecha" placeholder="Ingrese" />
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-3">
+                            <div class="input-group" style="width:100%">
+                                <span class="input-group-addon" style="width:100px">Paquete</span>
+                                <input type="text" class="form-control" id="filtroPaquete" placeholder="Ingrese" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <br />
+                    <div id="grid-view1" class="row" style="margin-top:0px;margin-left:1px;margin-right:1px;">
+                        <div id="gridItemsRelacionModal" class="label-sm grid-setcursor pull-left">
+                        </div>
+                    </div>
+                    <br />
+                </div>
+                <div class="modal-footer" id="PopupRelacionarFooter">
+                    <div class="col-xs-12 col-sm-6">
+                        <div class="home-buttom" onclick="GuardarRelacion(); return false;">
+                            <center><i class="fa fa-handshake-o">&nbsp;</i> </center>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</center>
+
+<script>
+    appendScriptChild("/moduleresources/scripts/ssii/planificacion/controller-inspeccionesfisicas.js");
+</script>
