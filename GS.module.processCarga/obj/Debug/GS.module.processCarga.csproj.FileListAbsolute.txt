@@ -1,0 +1,11 @@
+C:\Data\Dev\PI\GS.module.processCarga\bin\Debug\GS.module.processCarga.exe.config
+C:\Data\Dev\PI\GS.module.processCarga\bin\Debug\GS.module.processCarga.exe
+C:\Data\Dev\PI\GS.module.processCarga\bin\Debug\GS.module.processCarga.pdb
+C:\Data\Dev\PI\GS.module.processCarga\obj\Debug\GS.module.processCarga.exe
+C:\Data\Dev\PI\GS.module.processCarga\obj\Debug\GS.module.processCarga.pdb
+C:\Data\Dev\PI\GS.module.processCarga\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
+C:\Data\Dev\PI\GS.module.processCarga\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll
+C:\Data\Dev\PI\GS.module.processCarga\bin\Debug\Microsoft.Practices.ServiceLocation.dll
+C:\Data\Dev\PI\GS.module.processCarga\bin\Debug\Microsoft.Practices.Unity.dll
+C:\Data\Dev\PI\GS.module.processCarga\bin\Debug\Microsoft.Practices.Unity.Interception.dll
+C:\Data\Dev\PI\GS.module.processCarga\obj\Debug\GS.module.processCarga.csprojResolveAssemblyReference.cache

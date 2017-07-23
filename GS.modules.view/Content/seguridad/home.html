@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html lang="es-PE">
+<head>
+    <meta charset="utf-8">
+    <!--<meta http-equiv="X-UA-Compatible" content="IE=edge">-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title></title>
+    <script src="root.js"></script>
+    <script> 
+        apeendElement("css", "/moduleresources/css/bootstrap.min.css");
+        apeendElement("css", "/moduleresources/css/font-gs.min.css");
+        apeendElement("css", "/moduleresources/css/home.css");
+        apeendElement("css", "/moduleresources/css/toastr.min.css");
+        apeendElement("ico", "/moduleresources/images/favicon.ico");
+
+        apeendElement("css", "/moduleresources/css/kendo/kendo.common.min.css");
+        apeendElement("css", "/moduleresources/css/kendo/kendo.common-bootstrap.min.css");
+        apeendElement("css", "/moduleresources/css/kendo/kendo.rtl.min.css");
+        apeendElement("css", "/moduleresources/css/kendo/kendo.bootstrap.min.css");
+        apeendElement("css", "/moduleresources/css/kendo/kendo.bootstrap.mobile.min.css");
+
+        apeendElement("script", "/moduleresources/scripts/common/jquery.js");
+        apeendElement("script", "/moduleresources/scripts/common/jquery.mask.min.js");
+        apeendElement("script", "/moduleresources/scripts/common/toastr.min.js");
+        apeendElement("script", "/moduleresources/scripts/common/bootstrap.min.js");
+        apeendElement("script", "/moduleresources/scripts/kendo/kendo.all.min.js");
+        apeendElement("script", "/moduleresources/scripts/kendo/cultures/kendo.culture.es-PE.min.js");
+    </script>                              
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#options">
+                        <span class="sr-only">Menu</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a href="#" class="navbar-brand" id="hreflogo">
+                        <img src="../../../resources/images/img-logo.png" alt="Grupo Silvestre | Merlín" id="logo" style="height:50px; margin-top:-12px; padding-top:0px">
+                    </a>
+                </div>
+                <div class="collapse navbar-collapse" id="options">
+                    <ul class="nav navbar-nav" id="ul-options"></ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown">
+                            <ul class="dropdown-menu"></ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" aria-expanded="false" data-toggle="dropdown" id="sectionname">
+                                <i class="fa fa-user">&nbsp;</i>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#"><i class="fa fa-fw fa-user">&nbsp;</i>Ver Perfil</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#" id="sectionclosed" onclick="closedsession(); return false;"><i class="fa fa-fw fa-power-off">&nbsp;</i>Salir</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <br />
+    <div id="headerpages"></div>
+    <div id="jquerypages"></div>
+    <div class="container-fluid" id="pages">
+    </div>
+    <script>
+            apeendElement("script", "/moduleresources/scripts/init.js");
+            apeendElement("script", "/moduleresources/scripts/seguridad/seguridad-menu.js");
+    </script>
+</body>
+</html>

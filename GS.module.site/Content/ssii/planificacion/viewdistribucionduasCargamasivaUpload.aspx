@@ -10,7 +10,9 @@
     function checkfile(sender) {
         var validExts = new Array(".xls", ".xlsx");
         var fileExt = sender.value;
+        console.log(fileExt);
         fileExt = fileExt.substring(fileExt.lastIndexOf('.'));
+        
         if (validExts.indexOf(fileExt) < 0) {
             parent.showError("No ha sido posible procesar el archivo");
             sender.value = "";
@@ -26,6 +28,7 @@
         <tr>
             <td>
                 <asp:FileUpload ID="FileUploadPlantilla" onchange="checkfile(this);" runat="server" CssClass="upload-buttom" accept=".xls,.xlsx" />   
+                <asp:Label runat="server" id="label"></asp:Label>
             </td>
             <td>
                 <div class="home-buttom" style="width:90px; height:20px;" 

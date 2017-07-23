@@ -93,3 +93,4 @@ C:\Data\Dev\PI\GS.module.xamarin.android\obj\Debug\res\values\strings.xml
 C:\Data\Dev\PI\GS.module.xamarin.android\obj\Debug\res\drawable\icon.png
 C:\Data\Dev\PI\GS.module.xamarin.android\obj\Debug\R.cs.flag
 C:\Data\Dev\PI\GS.module.xamarin.android\obj\Debug\uploadflags.txt
+C:\Data\Dev\PI\GS.module.xamarin.android\obj\Debug\GS.module.xamarin.android.csprojResolveAssemblyReference.cache

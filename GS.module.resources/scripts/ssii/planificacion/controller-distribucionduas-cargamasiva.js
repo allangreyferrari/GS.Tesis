@@ -15,7 +15,7 @@ function ListarDUASCargaMasivaTemp() {
             read: function (options) {
                 $.ajax({
                     type: "GET",
-                    url: "../../Content/ssii/planificacion/viewdistribucionduasCargamasivaUpload.aspx/ListarBasicDua",
+                    url: "../../Content/ssii/planificacion/viewdistribucionduasCargamasivaUp.aspx/ListarBasicDua",
                     contentType: "application/json; charset=utf-8",
                     dataType: "json",
                     async: true,
@@ -169,3 +169,85 @@ function ListarDUASCargaMasiva() {
         ]
     });
 }
+
+function ListarDUASCargaMasivaTemp() {
+    var dsgridpadre = new kendo.data.DataSource({
+        data: DataEXCEL
+    });
+
+    $("#gridpadre").kendoGrid({
+        dataSource: dsgridpadre,
+        height: 340,
+        groupable: false,
+        sortable: false,
+        selectable: true,
+        resizable: true,
+        pageable: false,
+        /*
+        pageable: {
+            refresh: true,
+            pageSizes: [10, 20, 'All'],
+            buttonCount: 5
+        },*/
+        columns: [
+        {
+            field: "Fecha",
+            title: "<center>Fecha</center>",
+            width: 100
+        },
+        {
+            field: "Año",
+            title: "<center>Año</center>",
+            width: 100
+        },
+        {
+            field: "Dua",
+            title: "<center>Número DUA</center>",
+            width: 100
+        },
+        {
+            field: "Guia",
+            title: "<center>Guía</center>",
+            width: 120
+        },
+        {
+            field: "Volante",
+            title: "<center>Volante</center>",
+            width: 100
+        },
+        {
+            field: "Serie",
+            title: "<center>Serie</center>",
+            width: 60
+        },
+        {
+            field: "Bultos",
+            title: "<center>Bultos</center>",
+            width: 60
+        },
+        {
+            field: "Paquete",
+            title: "<center>Paquete</center>",
+            width: 100
+        }
+        ]
+    });
+}
+
+/*
+function checkfile(sender) {
+    var validExts = new Array(".xls", ".xlsx");
+    var fileExt = sender.value;
+    console.log(fileExt);
+    fileExt = fileExt.substring(fileExt.lastIndexOf('.'));
+
+    if (validExts.indexOf(fileExt) < 0) {
+        parent.showError("No ha sido posible procesar el archivo");
+        sender.value = "";
+        return false;
+    }
+    else {
+        return true;
+    }
+}
+*/

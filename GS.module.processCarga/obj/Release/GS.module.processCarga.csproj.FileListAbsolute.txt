@@ -1,0 +1,13 @@
+C:\Data\Dev\PI\GS.module.processCarga\bin\Release\GS.module.processCarga.exe.config
+C:\Data\Dev\PI\GS.module.processCarga\bin\Release\GS.module.processCarga.exe
+C:\Data\Dev\PI\GS.module.processCarga\bin\Release\GS.module.processCarga.pdb
+C:\Data\Dev\PI\GS.module.processCarga\bin\Release\GS.module.data.access.dll
+C:\Data\Dev\PI\GS.module.processCarga\bin\Release\GS.module.entities.dll
+C:\Data\Dev\PI\GS.module.processCarga\bin\Release\GS.module.logic.dll
+C:\Data\Dev\PI\GS.module.processCarga\bin\Release\Microsoft.Practices.EnterpriseLibrary.Common.dll
+C:\Data\Dev\PI\GS.module.processCarga\bin\Release\Microsoft.Practices.EnterpriseLibrary.Data.dll
+C:\Data\Dev\PI\GS.module.processCarga\bin\Release\Microsoft.Practices.ServiceLocation.dll
+C:\Data\Dev\PI\GS.module.processCarga\bin\Release\Microsoft.Practices.Unity.dll
+C:\Data\Dev\PI\GS.module.processCarga\bin\Release\Microsoft.Practices.Unity.Interception.dll
+C:\Data\Dev\PI\GS.module.processCarga\obj\Release\GS.module.processCarga.exe
+C:\Data\Dev\PI\GS.module.processCarga\obj\Release\GS.module.processCarga.pdb

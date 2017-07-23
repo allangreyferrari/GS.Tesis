@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html>
+<html lang="es-PE">
+<head>
+    <meta charset="utf-8">
+    <!--<meta http-equiv="X-UA-Compatible" content="IE=edge">-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Iniciar Sessión</title>
+    <script src="root.js"></script>
+    <script>
+        apeendElement("css", "/moduleresources/css/bootstrap.min.css");
+        apeendElement("css", "/moduleresources/css/font-gs.min.css");
+        apeendElement("css", "/moduleresources/css/helpdesk/hd-login.css");
+        apeendElement("css", "/moduleresources/css/toastr.min.css");
+        apeendElement("ico", "/moduleresources/images/favicon.ico");
+
+        apeendElement("script", "/moduleresources/scripts/common/jquery.js");
+        apeendElement("script", "/moduleresources/scripts/common/toastr.min.js");
+        apeendElement("script", "/moduleresources/scripts/common/bootstrap.min.js");
+        apeendElement("script", "/moduleresources/scripts/init.js");
+        apeendElement("script", "/moduleresources/scripts/seguridad/seguridad-signin.js");
+    </script>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <br>
+            <div class="col-sm-1 col-xs-1"></div>
+            <div class="col-sm-10 col-xs-10">
+                <div class="row">
+                    <div class="col-md-4 col-sm-12 col-xs-12">
+                        <div class="sig-section-header row"><center><img id="logo-gs" /></center></div>
+                        <div class="sig-section-body row" style="margin-top:3px;">
+                            <br>
+                            <center>
+                                <div>
+                                    <input type="text" id="inUser" class="form-control sig-text" placeholder="Usuario" required autofocus />
+                                    <br />
+                                    <input type="password" id="inContrasenna" class="form-control sig-text" placeholder="Contraseña" required />
+                                    <br />
+                                    <div class="sig-buttom" id="btnEntry"><i class="fa fa-key">&nbsp;</i>Iniciar Sesión</div>
+                                    <br />
+                                </div>
+                            </center>
+                        </div>
+                        <div id="sig-items" class="row" style="height:199px;margin-top:3px;">
+                            <div class="sig-section-header" style="height:50px">
+                                <p style="height:50px; padding:12px 0px 0px 20px; font-weight:bold; vertical-align:central; color:#004020;">
+                                    <i class="fa fa-home">&nbsp;</i>Bienvenidos
+                                </p>
+                            </div>
+                            <div class="sig-section-body scrollbar" style="height:146px;margin-top:3px;border-radius:0px 0px 0px 0px;">
+                                <p style="height:50px; padding:12px 20px 0px 20px; font-size:12px; vertical-align:central; text-align:justify; color:white;">
+                                    El Sistema de Mesa de Ayuda es una plataforma de comunicación formal que permite el registro, monitoreo y gestión de las ocurrencias presentadas en todas las áreas de Grupo Silvestre. Contempla acuerdos de niveles de servicio (SLA) que son medidos mediante indicadores de gestión y alertas automáticas.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-8 col-sm-12 col-xs-12">
+                        <div id="sig-pannel" class="sig-section-header row" style="height:500px;margin-left:1pt;">
+                            <!--<div id="mapholder"/>-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-1 col-xs-1"></div>
+        </div>
+    </div>
+    <div id="sig-footer" class="container-fluid">
+        <div class="row">
+            <div class="col-sm-1 col-xs-1"></div>
+            <div class="col-sm-10 col-xs-10">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="sig-section-footer row" style="font-size:12px;padding:12px 20px 12px 20px;">
+                            <center>
+                                <b>
+                                    <i>
+                                    "Si no se mide lo que se hace, no se puede controlar, y si no se puede controlar, no se puede dirigir y si no se puede dirigir no se puede mejorar"
+                                    </i>
+                                    <br>
+                                    2017 - Grupo Silvestre. Todos los derechos son reservados.
+                                </b>
+                            </center>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-1 col-xs-1">
+               
+            </div>
+        </div>
+    </div>
+    <div id="outMessage">
+    </div>
+</body>
+</html>

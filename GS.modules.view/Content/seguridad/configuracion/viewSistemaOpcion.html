@@ -1,0 +1,144 @@
+﻿<div class="container-fluid ContentBanner">
+    <div class="col-xs-12">
+        <div class="col-xs-12" style="padding:5px; height: 29px;">
+            <i class="fa fa-home">&nbsp;</i> Configuración de Opciones del Sistema
+            <i title="Regresar a Configuracion de Sistemas" class="fa fa-arrow-left  pull-right" style="cursor:pointer;" onclick="RegresarSistemas(); return false;">&nbsp;</i>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid ContentPage">
+    <div id="contentBusquedaAvanzada" class="row">
+        <div class="col-xs-12 col-sm-6 col-md-3">
+            <div class="input-group" style="width:100%">
+                <span class="input-group-addon" style="width:100px">Sistema</span>
+                <input type="text" class="form-control" id="filtroSistema" placeholder="Ingrese Nombre" />
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-6">
+            <div class="input-group" style="width:100%">
+                <span class="input-group-addon" style="width:100px">Nodo Padre</span>
+                <input type="text" class="form-control" id="filtroNodo" placeholder="Ingrese Nombre" />
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-3">
+            <div class="input-group" style="width:100%">
+                <span class="input-group-addon" style="width:100px">Estado</span>
+                <div class="form-control">
+                    <input type="image" id="filtroEstado" src="../resources/images/uncheck.png" style="width:20px;" onclick="CambiarFiltroEstado(); return false;" />
+                    <input type="hidden" id="filtroboolEstado" />
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-3">
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-3">
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid ContentBannerBody">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12" style="padding: 7px 7px 7px 35px;height: 29px;margin: 0px 0px 0px 0px;">
+            <i class="fa fa-list">&nbsp;</i> Listado de Opciones
+            <i title="Consultar Opciones del Sistema" class="fa fa-search pull-right" style="cursor:pointer;margin-right:27px" onclick="ListarOpciones(); return false;">&nbsp;</i>
+            <i title="Registrar Opción" class="fa fa-plus pull-right" style="cursor:pointer;margin-right:20px" onclick="RegistrarOpcion(); return false;">&nbsp;</i>
+         </div>
+    </div>
+</div>
+<div id="grid-view">
+    <div id="gridpadre">
+    </div>
+</div>
+
+<center>
+    <div class="modal fade" id="PopupOpcion" tabindex="-1" role="dialog" aria-hidden="true" style="z-index:99991">
+        <div class="modal-dialog" style="max-width:450px">
+            <div class="modal-content">
+                <div class="modal-header PopupBanner" style="padding:7px 7px 7px 36px; text-align:left">
+                    <div id="PopupOpcionHeader"></div>
+                    <input type="hidden" id="PopupOpcionId" />
+                </div>
+                <div class="modal-body" id="PopupOpcionBody">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="input-group" style="width:100%;padding: 0px 20px 0px 20px;">
+                                <span class="input-group-addon" style="width:120px">Sistema</span>
+                                <input type="text" id="PopupOpcionSistemaNombre" class="form-control" disabled />
+                                <input type="hidden" id="PopupOpcionSistema" />
+                            </div>
+                        </div>
+                        <div class="col-xs-12">
+                            <div class="input-group" style="width:100%;padding: 0px 20px 0px 20px;">
+                                <span class="input-group-addon" style="width:120px">Nombre</span>
+                                <input type="text" id="PopupOpcionNombre" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="col-xs-12">
+                            <div class="input-group" style="width:100%;padding: 0px 20px 0px 20px;">
+                                <span class="input-group-addon" style="width:120px">Descripción</span>
+                                <textarea id="PopupOpcionDescripcion" class="form-control" rows="2" style="height:80px;" />
+                            </div>
+                        </div>
+                        <div class="col-xs-12">
+                            <div class="input-group" style="width:100%;padding: 0px 20px 0px 20px;">
+                                <span class="input-group-addon" style="width:120px">Ruta</span>
+                                <textarea id="PopupOpcionRuta" class="form-control" rows="2" style="height:50px;" />
+                            </div>
+                        </div>
+                        <div class="col-xs-12">
+                            <div class="input-group" style="width:100%;padding: 0px 20px 0px 20px;">
+                                <span class="input-group-addon" style="width:120px">Nivel</span>
+                                <input type="text" id="PopupOpcionNivel" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="col-xs-12">
+                            <div class="input-group" style="width:100%;padding: 0px 20px 0px 20px;">
+                                <span class="input-group-addon" style="width:120px">Padre</span>
+                                <input type="text" id="PopupOpcionPadre" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="col-xs-12">
+                            <div class="input-group" style="width:100%;padding: 0px 20px 0px 20px;">
+                                <span class="input-group-addon" style="width:120px">Visualización</span>
+                                <input type="text" id="PopupOpcionFormaMostrar" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="col-xs-12">
+                            <div class="input-group" style="width:100%;padding: 0px 20px 0px 20px;">
+                                <span class="input-group-addon" style="width:120px">Tipo de Imagen</span>
+                                <input type="text" id="PopupOpcionTipoImagen" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="col-xs-12">
+                            <div class="input-group" style="width:100%;padding: 0px 20px 0px 20px;" id="PopupOpcionContentImagen">
+                            </div>
+                        </div>
+                        <div class="col-xs-12">
+                            <div class="input-group" style="width:100%;padding: 0px 20px 0px 20px;">
+                                <span class="input-group-addon" style="width:120px">Indice</span>
+                                <input type="text" id="PopupOpcionIndice" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="col-xs-12">
+                            <div class="input-group" style="width:100%;padding: 0px 20px 0px 20px;">
+                                <span class="input-group-addon" style="width:120px">Estado</span>
+                                <div class="form-control">
+                                    <input type="image" id="PopupOpcionEstado" src="../../../moduleresources/images/uncheck.png" style="width:20px;" onclick="CambiarEstado(); return false;" />
+                                    <input type="hidden" id="PopupOpcionboolEstado" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer" id="PopupSistemaFooter">
+                </div>
+            </div>
+        </div>
+    </div>
+</center>
+
+<script>
+    appendScriptChild("/moduleresources/scripts/util.js");
+    appendScriptChild("/moduleresources/scripts/seguridad/configuracion/seguridad-sistema-opcion.js");
+</script>
