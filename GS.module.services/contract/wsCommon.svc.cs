@@ -3,12 +3,14 @@
     using entities.Base;
     using entities.Primary;
     using logic.Common;
+    using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.ServiceModel;
     using System.ServiceModel.Activation;
     using System.Text;
     using System.Web;
+    using System.Web.Script.Serialization;
 
     // NOTA: puede usar el comando "Rename" del menú "Refactorizar" para cambiar el nombre de clase "wsCommon" en el código, en svc y en el archivo de configuración a la vez.
     // NOTA: para iniciar el Cliente de prueba WCF para probar este servicio, seleccione wsCommon.svc o wsCommon.svc.cs en el Explorador de soluciones e inicie la depuración.
@@ -97,6 +99,61 @@
         public Transaction EjecutarTransaction(string key, object[] parametros, object[] cryp = null)
         { 
             return new blCommon().EjecutarTransaction(key, parametros.ToList(), cryp.ToList());
+        }
+
+        private struct DUA
+        {
+            public string Año { get; set; }
+            public string Dua { get; set; }
+            public string Guia { get; set; }
+            public string Volante { get; set; }
+            public string Serie { get; set; }
+            public string Bultos { get; set; }
+            public string Paquete { get; set; }
+            public string Observacion { get; set; }
+            public string color { get; set; }
+
+        }
+
+        public Transaction EjecutarCargaEXCEL(object[] parametros)
+        {
+            try
+            {
+                JavaScriptSerializer oJS = new JavaScriptSerializer();
+                List<DUA> Excel = new List<DUA>();
+                Excel = oJS.Deserialize<List<DUA>>(parametros[1].ToString());
+
+                blCommon bl = new blCommon();
+                object[] arguments = { parametros[0].ToString(), parametros[2].ToString() };
+                object[] cryp = { };
+                Transaction transaction = bl.EjecutarTransaction("0JTHp/wwjYI=", arguments.ToList(), cryp.ToList());
+                foreach (var rowExcel in Excel.ToList())
+                {
+                    if (rowExcel.color == "green") { 
+                        object[] argumentsChild = 
+                        {
+                            rowExcel.Año + "-" + rowExcel.Dua,
+                            Convert.ToInt32(rowExcel.Serie),
+                            parametros[0].ToString(),
+                            rowExcel.Paquete,
+                            rowExcel.Guia,
+                            rowExcel.Volante,
+                            Convert.ToInt32(rowExcel.Bultos),
+                            parametros[2].ToString()
+                        };
+                        transaction = bl.EjecutarTransaction("KmKU4sRGvxY=", argumentsChild.ToList(), cryp.ToList());
+                    }
+                }
+                transaction.Type = TypeTransaction.OK;
+                transaction.Message = "Se procesaron " + Excel.Where(be=> be.color == "green").Count().ToString() + " DUAs para la fecha " + parametros[0].ToString();
+                return transaction;
+            }
+            catch(System.Exception ex)
+            {
+                return new Transaction() { Type = TypeTransaction.OK, Message = ex.Message };
+            }
+
+            //
         }
         #endregion
         ~wsCommon() { }

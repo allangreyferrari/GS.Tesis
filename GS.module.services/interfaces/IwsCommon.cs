@@ -86,6 +86,10 @@
         [OperationContract]
         [WebInvoke(Method = "POST", UriTemplate = "EjecutarTransaction", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.WrappedRequest)]
         Transaction EjecutarTransaction(string key, object[] parametros, object[] cryp = null);
+
+        [OperationContract]
+        [WebInvoke(Method = "POST", UriTemplate = "EjecutarCargaEXCEL", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.WrappedRequest)]
+        Transaction EjecutarCargaEXCEL(object[] parametros);
         #endregion
 
         [OperationContract]

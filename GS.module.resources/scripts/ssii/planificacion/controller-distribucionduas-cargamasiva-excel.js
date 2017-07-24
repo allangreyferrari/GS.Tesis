@@ -173,6 +173,20 @@ function process_wb(wb) {
             output = to_csv(wb);
     }
     DataEXCEL = output.h1;
+    DataEXCEL.forEach(function (element) {
+        element["Observacion"] = "OK: No se identifican problemas en los datos";
+        element["color"] = "green";
+        if (isNaN(element["Serie"])) {
+            element["Observacion"] = "ERROR: El valor de la serie no puede convertirse en número";
+            element["color"] = "red";
+        }   
+        if (isNaN(element["Bultos"]))
+        {
+            element["Observacion"] = "ERROR: El valor del bulto no puede convertirse en número";
+            element["color"] = "red";
+        }
+    });
+    //DataEXCEL[Observaciones] = "";
     ListarDUASCargaMasivaTemp();
     /*
     if (OUT.innerText === undefined) OUT.textContent = output;
@@ -180,6 +194,7 @@ function process_wb(wb) {
     if (typeof console !== 'undefined') console.log("output", new Date());
     */
 }
+
 function setfmt() { if (global_wb) process_wb(global_wb); }
 window.setfmt = setfmt;
 
@@ -230,31 +245,38 @@ if (drop.addEventListener) {
 
 var xlf = document.getElementById('xlf');
 function handleFile(e) {
-    rABS = true; //document.getElementsByName("userabs")[0].checked;
-    use_worker = true; //document.getElementsByName("useworker")[0].checked;
-    var files = e.target.files;
-    var f = files[0];
-    {
-        var reader = new FileReader();
-        //var name = f.name;
-        reader.onload = function (e) {
-            if (typeof console !== 'undefined') console.log("onload", new Date(), rABS, use_worker);
-            var data = e.target.result;
-            if (use_worker) {
-                xw(data, process_wb);
-            } else {
-                var wb;
-                if (rABS) {
-                    wb = X.read(data, { type: 'binary' });
+    DataEXCEL == null;
+    var result = validarDate("filtroFechaProgramacion");
+    if (result) {
+        rABS = true; //document.getElementsByName("userabs")[0].checked;
+        use_worker = true; //document.getElementsByName("useworker")[0].checked;
+        var files = e.target.files;
+        var f = files[0];
+        {
+            var reader = new FileReader();
+            //var name = f.name;
+            reader.onload = function (e) {
+                if (typeof console !== 'undefined') console.log("onload", new Date(), rABS, use_worker);
+                var data = e.target.result;
+                if (use_worker) {
+                    xw(data, process_wb);
                 } else {
-                    var arr = fixdata(data);
-                    wb = X.read(btoa(arr), { type: 'base64' });
+                    var wb;
+                    if (rABS) {
+                        wb = X.read(data, { type: 'binary' });
+                    } else {
+                        var arr = fixdata(data);
+                        wb = X.read(btoa(arr), { type: 'base64' });
+                    }
+                    process_wb(wb);
                 }
-                process_wb(wb);
-            }
-        };
-        if (rABS) reader.readAsBinaryString(f);
-        else reader.readAsArrayBuffer(f);
+            };
+            if (rABS) reader.readAsBinaryString(f);
+            else reader.readAsArrayBuffer(f);
+        }
+    }
+    else {
+        xlf.value = "";
     }
 }
 
