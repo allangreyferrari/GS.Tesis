@@ -25,7 +25,6 @@
             else if (response.NroRows = 0)
                 showError("Ocurrio un error al interntar recuperar el registro");
             else {
-                alert(response.Rows[0].v01);
                 var observable = kendo.observable({
                     source: new kendo.data.DataSource({
                         data: JSON.parse(response.Rows[0].v01)
