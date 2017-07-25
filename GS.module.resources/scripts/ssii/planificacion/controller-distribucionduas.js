@@ -632,3 +632,14 @@ function ListarGuiaVolante() {
 
     }
 }
+
+function Help(e) {
+    if (e.keyCode === 112) {
+        e.preventDefault();
+        alert("HELP: Registro de DUA\n \n1. Ingresar el número de DUA." +
+            "\n2. Seleccionar la guía y volante asociados." +
+            "\n3. Digitar la cantidad de series y bultos incluidos." + 
+            "\n4. Finalmente ingresar el paquete y la fecha de atención asignada por Aduana." +
+            "\n \nTALMA SSII");
+    }
+}
