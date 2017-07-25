@@ -53,6 +53,7 @@
     <Content Include="Componentes\GS.module.data.access.dll" />
     <Content Include="Componentes\GS.module.entities.dll" />
     <Content Include="Componentes\GS.module.logic.dll" />
+    <Content Include="Componentes\GS.module.services.dll" />
     <Content Include="DataAccess\Microsoft.Practices.EnterpriseLibrary.Common.dll" />
     <Content Include="DataAccess\Microsoft.Practices.EnterpriseLibrary.Data.dll" />
     <Content Include="DataAccess\Microsoft.Practices.ServiceLocation.dll" />

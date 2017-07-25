@@ -38,6 +38,18 @@
         }
     });
 
+    $("#modalcerrarFecha").mask("99/99/9999", { placeholder: 'DD/MM/YYYY' });
+    $('#modalcerrarFecha').datepicker({
+        format: "dd/mm/yyyy",
+        language: "es",
+        calendarWeeks: true,
+        multidateSeparator: "/",
+        beforeShowYear: function (date) {
+            if (date.getFullYear() == 2007) {
+                return false;
+            }
+        }
+    });
     SetToday("filtroFechaIni");
     SetToday("filtroFechaFin");
 
@@ -45,12 +57,44 @@
         $(document).off('focusin.modal');
     });
 
+    $('#modalBusqueda').on('shown.bs.modal', function () {
+        $(document).off('focusin.modal');
+    });
+
     ListarDUASFiltro();
+
+    $("#modalBusquedaGuia").blur(function (event) {
+        if ($("#modalBusquedaGuia").val != "")
+            ListarGuiaVolante();
+    });
+
+    $("#modalBusquedaVolante").blur(function (event) {
+        if ($("#modalBusquedaVolante").val != "")
+            ListarGuiaVolante
+    });
 });
 
-function BuscarVolante()
+function BuscarVolante(guia, volante, tipobusqueda)
 {
-    showError("No se pudo acceder a la informacion del Volante y la Guia");
+    $("#controlesbusqueda").val(guia + "|" + volante + "|" + tipobusqueda);
+    $("#modalBusqueda").modal("show");
+    //showError("No se pudo acceder a la informacion del Volante y la Guia");
+}
+
+function Select(guia, volante)
+{
+    var controls = $("#controlesbusqueda").val().split("|");        
+    console.log(controls);
+    if (controls[2] == 1)
+        $("#" + controls[0]).val(guia);
+    if (controls[2] == 2) {
+        $("#" + controls[0]).val(guia);
+        $("#" + controls[1]).val(volante);
+    }
+    if (controls[2] == 3)
+        $("#" + controls[1]).val(volante);
+    $("#modalBusqueda").modal("hide");
+
 }
 
 function CambiarEstado() {
@@ -65,7 +109,6 @@ function CambiarEstado() {
 }
 
 function GuardarPopup() {
-
     var params = JSON.stringify({
         "key": "z2hqGChwPl8=",
         "parametros":
@@ -81,7 +124,7 @@ function GuardarPopup() {
                 $("#modalDUAPaquete").val(),
 
                 $("#modalDUAFechaAtencion").val(),
-                $("#PopupOpcionboolEstado").val(),
+                $("#modalDUAboolActivo").val(),
                 localStorage.getItem('session')
             ],
         "cryp": []
@@ -92,11 +135,11 @@ function GuardarPopup() {
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         data: params,
-        async: true,
+        async: true,    
         processData: false,
         cache: false,
         success: function (transaction) {
-            if (transaction.Type == 1)
+            if (transaction.Type == 0)
                 showSuccess(transaction.Message);
             else
                 showError(transaction.Message);
@@ -107,11 +150,58 @@ function GuardarPopup() {
             showError(JSON.stringify(transaction.Message));
         }
     });
-    $("#modalDUA").modal("hide");
 }
 
 function CancelarPopup() {
     $("#modalDUA").modal("hide");
+}
+
+function CancelarCierrePopup() {
+    $("#modalcerrar").modal("hide");
+}
+
+function IrCerrarCarga() {
+
+    SetToday("modalcerrarFecha");
+    $("#modalcerrar").modal("show");
+}
+
+function ConfirmarCierrePopup()
+{
+    var result = validarDate("modalcerrarFecha");
+
+    if (result) {
+        var params = JSON.stringify({
+            "key": "zk5P2jKT5j4=",
+            "parametros":
+                [
+                    $("#modalcerrarFecha").val(),
+                    localStorage.getItem('session')
+                ],
+            "cryp": []
+        });
+        $.ajax({
+            type: "POST",
+            url: wsnode + "wsCommon.svc/EjecutarTransaction",
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            data: params,
+            async: true,
+            processData: false,
+            cache: false,
+            success: function (transaction) {
+                if (transaction.Type == 0)
+                    showSuccess(transaction.Message);
+                else
+                    showError(transaction.Message);
+                $("#modalcerrar").modal("hide");
+                ListarDUASFiltro();
+            },
+            error: function (transaction) {
+                showError(JSON.stringify(transaction.Message));
+            }
+        });
+    }
 }
 
 function Nuevo()
@@ -428,4 +518,117 @@ function ListarDUASFiltro() {
         */
     }
 
+}
+
+function ListarGuiaVolante() {
+
+    var result;
+    result = ($("#modalBusquedaGuia").val() != "" || $("#modalBusquedaVolante") != "") ? true : false;
+
+    if (!result)
+        showError("Debe ingresar correctamente los filtros de busqueda");
+
+    if (result) {
+        $("#gridpadrebusqueda").empty();
+        var params = JSON.stringify({
+            "key": "ncrPtjzTHtM=",
+            "parametros":
+                [
+                    $('#modalBusquedaGuia').val(),
+                    $('#modalBusquedaVolante').val(),
+                    localStorage.getItem('session')
+                ],
+            "cryp": []
+        });
+
+        var dsgridpadrebusqueda = new kendo.data.TreeListDataSource({
+            transport: {
+                read: function (options) {
+                    $.ajax({
+                        type: "POST",
+                        url: wsnode + "wsCommon.svc/ListarBasicTen",
+                        contentType: "application/json; charset=utf-8",
+                        dataType: "json",
+                        data: params,
+                        async: true,
+                        processData: true,
+                        cache: false,
+                        success: function (response) {
+                            if (response.Transaction.Type == 1)
+                                showError(response.Transaction.Message);
+                            if (response.NroRows > 0) {
+                                options.success(response.Rows)
+                            }
+                        },
+                        error: function (err) { }
+                    });
+                }
+            }
+        });
+
+        $("#gridpadrebusqueda").kendoGrid({
+            dataSource: dsgridpadrebusqueda,
+            height: 350,
+
+            rowTemplate:
+                        "<tr>" +
+                        "<td><div title='Selección' style='cursor:pointer'><center><i class=\"fa fa-check\" onclick=\"Select('#: v01 #','#: v02 #'); return false;\">&nbsp;</i></center></div></td>" +
+                        "<td><center>#: v01 #</center></td>" +
+                        "<td><center>#: v02 #</center></td>" +
+                        "<td><center>#: v03 #</center></td>" +
+                        "<td><center>#: v04 #</center></td>" +
+                        "<td><center>#: v05 #</center></td>" +
+                        "</tr>",
+            altRowTemplate:
+                        "<tr>" +
+                        "<td><div title='Selección' style='cursor:pointer'><center><i class=\"fa fa-check\" onclick=\"Select('#: v01 #','#: v02 #'); return false;\">&nbsp;</i></center></div></td>" +
+                        "<td><center>#: v01 #</center></td>" +
+                        "<td><center>#: v02 #</center></td>" +
+                        "<td><center>#: v03 #</center></td>" +
+                        "<td><center>#: v04 #</center></td>" +
+                        "<td><center>#: v05 #</center></td>" +
+                        "</tr>",
+            group: {
+                field: "v10"
+            },
+            groupable: false,
+            sortable: false,
+            selectable: true,
+            resizable: false,
+            pageable: false,
+            columns: [
+            {
+                template: "<div title='Selección' style='cursor:pointer'><center><i class=\"fa fa-check\" onclick=\"Select('#: v01 #'); return false;\">&nbsp;</i></center></div>",
+                title: "<center>Selección</center>",
+                width: 60
+            },
+            {
+                field: "v02",
+                title: "<center>Guía</center>",
+                width: 100
+            },
+            {
+                field: "v03",
+                title: "<center>Volante</center>",
+                width: 100
+            },
+            {
+                field: "v04",
+                title: "<center>Kilos</center>",
+                width: 100
+            },
+            {
+                field: "v05",
+                title: "<center>Bultos</center>",
+                width: 50
+            },
+            {
+                field: "v06",
+                title: "<center>Descripción</center>",
+                width: 50
+            }
+            ]
+        });
+
+    }
 }
