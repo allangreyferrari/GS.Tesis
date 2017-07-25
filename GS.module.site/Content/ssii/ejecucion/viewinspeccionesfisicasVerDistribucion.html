@@ -1,0 +1,34 @@
+﻿<div class="container-fluid ContentBanner">
+    <div class="col-xs-12">
+        <div class="col-xs-12" style="padding:5px; height: 29px;">
+            <i class="fa fa-home">&nbsp;</i> Distribución de inspecciones
+            <i title="Regresar" class="fa fa-arrow-left pull-right" style="cursor:pointer;" onclick="Regresar(); return false;">&nbsp;</i>
+        </div>
+    </div>
+</div>
+
+<div id="parent-grid" data-role="grid" data-columns="[{ template: '<div class=\'distribucion\'><div class=\'responsable\'><label>Responsable:</label> #: responsable #</div><div class=\'itemdistribucion\'><div data-role=\'grid\' data-row-template=\'child-grid-template\' data-bind=\'source: inspecciones\' ></div></div></div>'}]" data-bind="source: source"></div>
+
+<script id="child-grid-template" type="text/x-kendo-template">    
+    <tr data-uid="#: uid #">
+        <td>#: turno#</td>
+        <td>#: agente#</td>
+        <td>#: tiempo_espera#</td>
+        <td>#: revision_documentaria#</td>
+        <td>#: revision_fisica#</td>
+        <td>#: dua#</td>
+    </tr>
+</script>
+
+<div class="container-fluid ContentBanner">
+    <div class="col-xs-12">
+        <div class="col-xs-12" style="padding:5px; height: 29px;">
+            T.E: Tiempo espera &nbsp;| &nbsp;R.D: Revisión documentaria &nbsp;| &nbsp;R.F: Revisión física &nbsp;| &nbsp;TRN: Turno
+        </div>
+    </div>
+</div>
+
+<script>
+
+    appendScriptChild("/moduleresources/scripts/ssii/ejecucion/controller-inspeccionesfisicas-verdistribucion.js");
+</script>

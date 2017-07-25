@@ -33,6 +33,11 @@ function SetToday(inputDATE) {
     $("#" + inputDATE).val(today);
 }
 
+function VerDistribucion() {
+    argument = null;
+    $("#pages").load('../../Content/ssii/ejecucion/viewinspeccionesfisicasVerdistribucion.html');
+}
+
 
 function Relacionar() {
 
@@ -214,9 +219,9 @@ function GuardarRelacion() {
         cache: false,
         success: function (transaction) {
             if (transaction.Type == 1)
-                showSuccess(transaction.Message);
-            else
                 showError(transaction.Message);
+            else
+                showSuccess(transaction.Message);
             $("#modalRelacionar").modal("hide");
             ListarInspeccionesFiltro();
         },
@@ -224,7 +229,6 @@ function GuardarRelacion() {
             showError(JSON.stringify(transaction.Message));
         }
     });
-    $("#modalRelacionar").modal("hide");
 }
 
 function ListarInspeccionesFiltro() {
@@ -281,9 +285,9 @@ function ListarInspeccionesFiltro() {
                     "<tr>" +
                     "<td><div style='cursor:pointer'><center>" +
                         "<i title='Ver detalle' class=\"fa fa-eye\" onclick=\"VerDetalle('#: v01 #'); return false;\">&nbsp;</i>" +
-                        "<i title='Iniciar llamado' class=\"fa fa-clock-o\" onclick=\"IniciarLlamado('#: v01 #'); return false;\">&nbsp;</i>" +
-                        "<i title='Revisión documentaria' class=\"fa fa-folder-open-o\" onclick=\"RevisionDocumentaria('#: v01 #'); return false;\">&nbsp;</i>" +
-                        "<i title='Revisión física' class=\"fa fa-cube\" onclick=\"RevisionFisica('#: v01 #'); return false;\">&nbsp;</i>" +
+                        "<i title='Iniciar llamado' class=\"fa fa-clock-o\" onclick=\"EjecutarOperacion('#: v01 #', 1); return false;\">&nbsp;</i>" +
+                        "<i title='Revisión documentaria' class=\"fa fa-folder-open-o\" onclick=\"EjecutarOperacion('#: v01 #', 2); return false;\">&nbsp;</i>" +
+                        "<i title='Revisión física' class=\"fa fa-cube\" onclick=\"EjecutarOperacion('#: v01 #', 3); return false;\">&nbsp;</i>" +
                         "</center></div></td>" +
                     "<td><center>#: v02 #</center></td>" +
                     "<td><center>#: v03 #</center></td>" +
@@ -298,9 +302,9 @@ function ListarInspeccionesFiltro() {
                     "<tr>" +
                     "<td><div style='cursor:pointer'><center>"+
                         "<i title='Ver detalle' class=\"fa fa-eye\" onclick=\"VerDetalle('#: v01 #'); return false;\">&nbsp;</i>" +
-                        "<i title='Iniciar llamado' class=\"fa fa-clock-o\" onclick=\"IniciarLlamado('#: v01 #'); return false;\">&nbsp;</i>" +
-                        "<i title='Revisión documentaria' class=\"fa fa-folder-open-o\" onclick=\"RevisionDocumentaria('#: v01 #'); return false;\">&nbsp;</i>" +
-                        "<i title='Revisión física' class=\"fa fa-cube\" onclick=\"RevisionFisica('#: v01 #'); return false;\">&nbsp;</i>" +
+                        "<i title='Iniciar llamado' class=\"fa fa-clock-o\" onclick=\"EjecutarOperacion('#: v01 #', 1); return false;\">&nbsp;</i>" +
+                        "<i title='Revisión documentaria' class=\"fa fa-folder-open-o\" onclick=\"EjecutarOperacion('#: v01 #', 2); return false;\">&nbsp;</i>" +
+                        "<i title='Revisión física' class=\"fa fa-cube\" onclick=\"EjecutarOperacion('#: v01 #', 3); return false;\">&nbsp;</i>" +
                         "</center></div></td>" +
                     "<td><center>#: v02 #</center></td>" +
                     "<td><center>#: v03 #</center></td>" +
@@ -327,9 +331,9 @@ function ListarInspeccionesFiltro() {
         {
             template: "<div style='cursor:pointer'><center>" +
                         "<i title='Ver detalle' class=\"fa fa-eye\" onclick=\"VerDetalle('#: v01 #'); return false;\">&nbsp;</i>" +
-                        "<i title='Iniciar llamado' class=\"fa fa-clock-o\" onclick=\"IniciarLlamado('#: v01 #'); return false;\">&nbsp;</i>" +
-                        "<i title='Revisión documentaria' class=\"fa fa-folder-open-o\" onclick=\"RevisionDocumentaria('#: v01 #'); return false;\">&nbsp;</i>" +
-                        "<i title='Revisión física' class=\"fa fa-cube\" onclick=\"RevisionFisica('#: v01 #'); return false;\">&nbsp;</i>" +
+                        "<i title='Iniciar llamado' class=\"fa fa-clock-o\" onclick=\"EjecutarOperacion('#: v01 #', 1); return false;\">&nbsp;</i>" +
+                        "<i title='Revisión documentaria' class=\"fa fa-folder-open-o\" onclick=\"EjecutarOperacion('#: v01 #', 2); return false;\">&nbsp;</i>" +
+                        "<i title='Revisión física' class=\"fa fa-cube\" onclick=\"EjecutarOperacion('#: v01 #', 3); return false;\">&nbsp;</i>" +
                         "</center></div></td>",
             title: "",
             width: 60
@@ -399,6 +403,8 @@ function VerDetalle(id) {
         processData: true,
         cache: false,
         success: function (response) {
+            console.log(response);
+
             if (response.Transaction.Type == 1)
                 showError(response.Transaction.Message);
             if (response.NroRows = 0)
@@ -431,138 +437,14 @@ function VerDetalle(id) {
     });
 }
 
-function RevisionDocumentaria(id) {
-    if (InspeccionAsignadaAUsuario(id)) {
-
-        $("#modalRevisionHeader").html("<i class=\"fa fa-folder-open-o\">&nbsp;</i> Revisión documentaria");
-        $("#modalRevision").modal("show");
-
-        $("#gridRevisionDocumentaria").kendoGrid({
-            dataSource: [
-                { saludo: "Jane Doe", age: 30 },
-                { saludo: "John Doe", age: 33 }
-            ],
-            height: 200,
-
-            rowTemplate:
-                        "<tr>" +
-                        "<td><center>#: saludo #</center></td>" +
-                        //"<td><center>#: v02 #</center></td>" +
-                        //"<td><center>#: v03 #</center></td>" +
-                        //"<td><center>#: v04 #</center></td>" +
-                        "</tr>",
-            altRowTemplate:
-                        "<tr>" +
-                        "<td><center>#: saludo #</center></td>" +
-                        //"<td><center>#: v02 #</center></td>" +
-                        //"<td><center>#: v03 #</center></td>" +
-                        //"<td><center>#: v04 #</center></td>" +                  
-                        "</tr>",
-            group: {
-                field: "saludo"
-            },
-            groupable: false,
-            sortable: true,
-            selectable: true,
-            resizable: true,
-            columns: [
-            {
-                field: "v02",
-                title: "<center>Nombre</center>",
-                width: 100
-            },
-            {
-                field: "v03",
-                title: "<center>Fecha de carga</center>",
-                width: 70
-            },
-            {
-                field: "v04",
-                title: "<center>Estado</center>",
-                width: 70
-            },
-            {
-                field: "v05",
-                title: "<center>Ver</center>",
-                width: 70
-            }
-            ]
-        });
-    } else {
-        showError("Esta inspección ha sido asignada a otro usuario");
-    }
-}
-
-function RevisionFisica() {
-    if (InspeccionAsignadaAUsuario(id)) {
-        $("#modalRevisionHeader").html("<i class=\"fa fa-cube\">&nbsp;</i> Revisión física");
-        $("#modalRevision").modal("show");
-
-        $("#gridRevisionDocumentaria").kendoGrid({
-            dataSource: [
-                { saludo: "Jane Doe", age: 30 },
-                { saludo: "John Doe", age: 33 }
-            ],
-            height: 200,
-
-            rowTemplate:
-                        "<tr>" +
-                        "<td><center>#: saludo #</center></td>" +
-                        //"<td><center>#: v02 #</center></td>" +
-                        //"<td><center>#: v03 #</center></td>" +
-                        //"<td><center>#: v04 #</center></td>" +
-                        "</tr>",
-            altRowTemplate:
-                        "<tr>" +
-                        "<td><center>#: saludo #</center></td>" +
-                        //"<td><center>#: v02 #</center></td>" +
-                        //"<td><center>#: v03 #</center></td>" +
-                        //"<td><center>#: v04 #</center></td>" +                  
-                        "</tr>",
-            group: {
-                field: "saludo"
-            },
-            groupable: false,
-            sortable: true,
-            selectable: true,
-            resizable: true,
-            columns: [
-            {
-                field: "v02",
-                title: "<center>Nombre</center>",
-                width: 100
-            },
-            {
-                field: "v03",
-                title: "<center>Fecha de carga</center>",
-                width: 70
-            },
-            {
-                field: "v04",
-                title: "<center>Estado</center>",
-                width: 70
-            },
-            {
-                field: "v05",
-                title: "<center>Ver</center>",
-                width: 70
-            }
-            ]
-        });
-    } else {
-        showError("Esta inspección ha sido asignada a otro usuario");
-    }
-}
-
-function InspeccionAsignadaAUsuario(id) {
-
-    var asignado = false;
+function EjecutarOperacion(id, operacion) {
 
     var params = JSON.stringify({
         "key": "apqv+NAK2Qo=",
         "parametros":
             [
                 parseInt(id),
+                parseInt(operacion),
                 localStorage.getItem('session')
             ],
         "cryp": []
@@ -570,7 +452,7 @@ function InspeccionAsignadaAUsuario(id) {
 
     $.ajax({
         type: "POST",
-        url: wsnode + "wsCommon.svc/ListarBasicFive",
+        url: wsnode + "wsCommon.svc/ListarBasicTen",
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         data: params,
@@ -578,15 +460,277 @@ function InspeccionAsignadaAUsuario(id) {
         processData: true,
         cache: false,
         success: function (response) {
-            showError(response.NroRows);
             if (response.Transaction.Type == 1)
                 showError(response.Transaction.Message);
-            if (response.NroRows > 0)
-                asignado = true;
+            if (response.NroRows > 0) {
+                if (response.Rows[0].v04 == 1)
+                    IniciarLlamado(response.Rows[0].v01);
+                if (response.Rows[0].v04 == 2)
+                    RevisionDocumentaria(response.Rows[0].v01);
+                if (response.Rows[0].v04 == 3)
+                    RevisionFisica(response.Rows[0].v01);
+            }
         },
-        error: function (response) {            
+        error: function (response) {
         }
     });
+}
 
-    return asignado;
+function RevisionDocumentaria(id) {
+    var r = confirm("¿Desesa iniciar la revisión documentaria?");
+    if (r == true) {
+        var params = JSON.stringify({
+            "key": "UfTWRH3t4rU=",
+            "parametros":
+                [
+                    parseInt(id),
+                    localStorage.getItem('session')
+                ],
+            "cryp": []
+        });
+        $.ajax({
+            type: "POST",
+            url: wsnode + "wsCommon.svc/EjecutarTransaction",
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            data: params,
+            async: true,
+            processData: false,
+            cache: false,
+            success: function (transaction) {
+                if (transaction.Type == 1)
+                    showError(transaction.Message);
+                else {
+                    ListarInspeccionesFiltro();
+
+                    $("#modalRevisionHeader").html("<i class=\"fa fa-folder-open-o\">&nbsp;</i> Revisión documentaria");
+                    $("#modalRevisionId").val(id);
+                    $("#modalRevisionTipo").val("Documentaria");
+                    $("#modalRevision").modal("show");
+
+                    $("#gridRevisionDocumentaria").kendoGrid({
+                        dataSource: [
+                            { saludo: "Jane Doe", age: 30 },
+                            { saludo: "John Doe", age: 33 }
+                        ],
+                        height: 200,
+
+                        rowTemplate:
+                                    "<tr>" +
+                                    "<td><center>#: saludo #</center></td>" +
+                                    //"<td><center>#: v02 #</center></td>" +
+                                    //"<td><center>#: v03 #</center></td>" +
+                                    //"<td><center>#: v04 #</center></td>" +
+                                    "</tr>",
+                        altRowTemplate:
+                                    "<tr>" +
+                                    "<td><center>#: saludo #</center></td>" +
+                                    //"<td><center>#: v02 #</center></td>" +
+                                    //"<td><center>#: v03 #</center></td>" +
+                                    //"<td><center>#: v04 #</center></td>" +                  
+                                    "</tr>",
+                        group: {
+                            field: "saludo"
+                        },
+                        groupable: false,
+                        sortable: true,
+                        selectable: true,
+                        resizable: true,
+                        columns: [
+                        {
+                            field: "v02",
+                            title: "<center>Nombre</center>",
+                            width: 100
+                        },
+                        {
+                            field: "v03",
+                            title: "<center>Fecha de carga</center>",
+                            width: 70
+                        },
+                        {
+                            field: "v04",
+                            title: "<center>Estado</center>",
+                            width: 70
+                        },
+                        {
+                            field: "v05",
+                            title: "<center>Ver</center>",
+                            width: 70
+                        }
+                        ]
+                    });
+                }
+            },
+            error: function (transaction) {
+                showError(JSON.stringify(transaction.Message));
+            }
+        });        
+    }
+}
+
+function RevisionFisica(id) {
+    var r = confirm("¿Desesa iniciar la revisión física?");
+    if (r == true) {
+        var params = JSON.stringify({
+            "key": "+MsUOBvp4Bc=",
+            "parametros":
+                [
+                    parseInt(id),
+                    localStorage.getItem('session')
+                ],
+            "cryp": []
+        });
+        $.ajax({
+            type: "POST",
+            url: wsnode + "wsCommon.svc/EjecutarTransaction",
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            data: params,
+            async: true,
+            processData: false,
+            cache: false,
+            success: function (transaction) {
+                if (transaction.Type == 1)
+                    showError(transaction.Message);
+                else {
+                    ListarInspeccionesFiltro();
+
+                    $("#modalRevisionHeader").html("<i class=\"fa fa-cube\">&nbsp;</i> Revisión física");
+                    $("#modalRevisionId").val(id);
+                    $("#modalRevisionTipo").val("Fisica");
+                    $("#modalRevision").modal("show");
+
+                    $("#gridRevisionDocumentaria").kendoGrid({
+                        dataSource: [
+                            { saludo: "Jane Doe", age: 30 },
+                            { saludo: "John Doe", age: 33 }
+                        ],
+                        height: 200,
+
+                        rowTemplate:
+                                    "<tr>" +
+                                    "<td><center>#: saludo #</center></td>" +
+                                    //"<td><center>#: v02 #</center></td>" +
+                                    //"<td><center>#: v03 #</center></td>" +
+                                    //"<td><center>#: v04 #</center></td>" +
+                                    "</tr>",
+                        altRowTemplate:
+                                    "<tr>" +
+                                    "<td><center>#: saludo #</center></td>" +
+                                    //"<td><center>#: v02 #</center></td>" +
+                                    //"<td><center>#: v03 #</center></td>" +
+                                    //"<td><center>#: v04 #</center></td>" +                  
+                                    "</tr>",
+                        group: {
+                            field: "saludo"
+                        },
+                        groupable: false,
+                        sortable: true,
+                        selectable: true,
+                        resizable: true,
+                        columns: [
+                        {
+                            field: "v02",
+                            title: "<center>Nombre</center>",
+                            width: 100
+                        },
+                        {
+                            field: "v03",
+                            title: "<center>Fecha de carga</center>",
+                            width: 70
+                        },
+                        {
+                            field: "v04",
+                            title: "<center>Estado</center>",
+                            width: 70
+                        },
+                        {
+                            field: "v05",
+                            title: "<center>Ver</center>",
+                            width: 70
+                        }
+                        ]
+                    });
+                }
+            },
+            error: function (transaction) {
+                showError(JSON.stringify(transaction.Message));
+            }
+        });
+    }
+}
+
+function IniciarLlamado(id) {
+    var r = confirm("¿Desesa iniciar el llamado?");
+    if (r == true) {
+        var params = JSON.stringify({
+            "key": "xuwvm9YsqLY=",
+            "parametros":
+                [
+                    parseInt(id),
+                    localStorage.getItem('session')
+                ],
+            "cryp": []
+        });
+        $.ajax({
+            type: "POST",
+            url: wsnode + "wsCommon.svc/EjecutarTransaction",
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            data: params,
+            async: true,
+            processData: false,
+            cache: false,
+            success: function (transaction) {
+                if (transaction.Type == 1)
+                    showError(transaction.Message);
+                else
+                    showSuccess(transaction.Message);
+                ListarInspeccionesFiltro();
+            },
+            error: function (transaction) {
+                showError(JSON.stringify(transaction.Message));
+            }
+        });
+    }
+}
+
+function FinalizarRevision() {
+    var key = "";
+    if ($('#modalRevisionTipo').val() == "Documentaria") {
+        key = "xs36gioJ8Gg=";
+    } else if ($('#modalRevisionTipo').val() == "Fisica") {
+        key = "FTjkeC56tj0=";
+    }
+
+    var params = JSON.stringify({
+        "key": key,
+        "parametros":
+            [
+                parseInt($('#modalRevisionId').val()),
+                localStorage.getItem('session')
+            ],
+        "cryp": []
+    });
+    $.ajax({
+        type: "POST",
+        url: wsnode + "wsCommon.svc/EjecutarTransaction",
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        data: params,
+        async: true,
+        processData: false,
+        cache: false,
+        success: function (transaction) {
+            if (transaction.Type == 1)
+                showError(transaction.Message);
+            else
+                showSuccess(transaction.Message);
+            $("#modalRevision").modal("hide");
+            ListarInspeccionesFiltro();            
+        },
+        error: function (transaction) {
+            showError(JSON.stringify(transaction.Message));
+        }
+    });
 }
