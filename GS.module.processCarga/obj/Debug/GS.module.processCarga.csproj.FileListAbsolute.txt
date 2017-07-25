@@ -19,6 +19,5 @@ C:\Data\Dev\PI2\GS.module.processCarga\bin\Debug\Microsoft.Practices.EnterpriseL
 C:\Data\Dev\PI2\GS.module.processCarga\bin\Debug\Microsoft.Practices.ServiceLocation.dll
 C:\Data\Dev\PI2\GS.module.processCarga\bin\Debug\Microsoft.Practices.Unity.dll
 C:\Data\Dev\PI2\GS.module.processCarga\bin\Debug\Microsoft.Practices.Unity.Interception.dll
-C:\Data\Dev\PI2\GS.module.processCarga\obj\Debug\GS.module.processCarga.csprojResolveAssemblyReference.cache
 C:\Data\Dev\PI2\GS.module.processCarga\obj\Debug\GS.module.processCarga.exe
 C:\Data\Dev\PI2\GS.module.processCarga\obj\Debug\GS.module.processCarga.pdb
