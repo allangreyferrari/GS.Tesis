@@ -26,7 +26,6 @@ C:\Data\Dev\PI2\GS.module.processICarga\bin\Debug\Microsoft.Practices.Enterprise
 C:\Data\Dev\PI2\GS.module.processICarga\bin\Debug\Microsoft.Practices.ServiceLocation.dll
 C:\Data\Dev\PI2\GS.module.processICarga\bin\Debug\Microsoft.Practices.Unity.dll
 C:\Data\Dev\PI2\GS.module.processICarga\bin\Debug\Microsoft.Practices.Unity.Interception.dll
-C:\Data\Dev\PI2\GS.module.processICarga\obj\Debug\GS.module.processICarga.csprojResolveAssemblyReference.cache
 C:\Data\Dev\PI2\GS.module.processICarga\obj\Debug\GS.module.processICarga.Form1.resources
 C:\Data\Dev\PI2\GS.module.processICarga\obj\Debug\GS.module.processICarga.Properties.Resources.resources
 C:\Data\Dev\PI2\GS.module.processICarga\obj\Debug\GS.module.processICarga.csproj.GenerateResource.Cache
